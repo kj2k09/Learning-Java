@@ -1,0 +1,62 @@
+import java.util.ArrayList;
+
+public class Grid {
+    private int[][] grid;
+
+    public Grid(int[][] grid) {
+        this.grid = grid;
+    }
+
+    public ArrayList<Integer> diagonal() {
+        ArrayList<Integer> diagonalElements = new ArrayList<>();
+        int size = Math.min(grid.length, grid[0].length);
+        for (int i = 0; i < size; i++) {
+            diagonalElements.add(grid[i][i]);
+        }
+        return diagonalElements;
+    }
+
+    public static void main(String[] args) {
+        int[][] gridData = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        Grid grid = new Grid(gridData);
+        System.out.println(grid.diagonal());
+    }
+}
+
+
+import java.util.ArrayList;
+
+public class Grid {
+    private int numRows;
+    private int numCols;
+    private static ArrayList<Grid> allGrids = new ArrayList<>();
+
+    public Grid(int numRows, int numCols) {
+        this.numRows = numRows;
+        this.numCols = numCols;
+        allGrids.add(this);
+    }
+
+    public int getLargestSide() {
+        return Math.max(numRows, numCols);
+    }
+
+    public static int getBiggestSideLength() {
+        int maxSideLength = 0;
+        for (Grid grid : allGrids) {
+            maxSideLength = Math.max(maxSideLength, grid.getLargestSide());
+        }
+        return maxSideLength;
+    }
+
+    public static void main(String[] args) {
+        new Grid(3, 4);
+        new Grid(5, 5);
+        new Grid(2, 6);
+        System.out.println("Biggest side length: " + Grid.getBiggestSideLength());
+    }
+}
