@@ -188,3 +188,29 @@ public static void returnAll(LibraryItem[] items) {
         }
     }
 }
+public static void returnAll(LibraryItem[] items) {
+    // Loop through each item in the array
+    for (LibraryItem item : items) {
+        if (item != null) { // Check for null to avoid errors
+            item.returnItem(); // Call the method to mark the item as returned
+        }
+    }
+}
+public static ArrayList<LibraryItem> availableItems(LibraryItem[] items) {
+	public static ArrayList<LibraryItem> availableItems(LibraryItem[] items) {
+    // Create an ArrayList to store available items
+    ArrayList<LibraryItem> availableList = new ArrayList<>();
+    
+    // Return the ArrayList at the end (even if it's empty for now)
+    return availableList;
+for( LibraryItems item : items) {
+	if (item != null && item.isAvailable()) {
+            // Add the available item to the ArrayList
+            availableList.add(item);
+        }
+	return availableList;
+}
+
+ 
+	}
+}
