@@ -180,3 +180,11 @@ public class Square {
 	public String toString() {
 		return "(corner: " + corner + "; side length: " + sideLength + ")";
 	}
+public static void returnAll(LibraryItem[] items) {
+    // Loop through each item in the array
+    for (LibraryItem item : items) {
+        if (item != null) { // Check for null to avoid errors
+            item.returnItem(); // Call the method to mark the item as returned
+        }
+    }
+}
